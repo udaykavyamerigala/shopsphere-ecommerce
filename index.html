@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="top-header">
+
+        <div class="logo">
+            Shop<span>Sphere</span>
+        </div>
+
+        <div class="location">
+            <small>Deliver to</small>
+            <strong>📍 India</strong>
+        </div>
+
+        <div class="search-container">
+
+            <select id="searchCategory">
+                <option value="all">All</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Home">Home</option>
+                <option value="Beauty">Beauty</option>
+                <option value="Mobiles">Mobiles</option>
+                <option value="Books">Books</option>
+                <option value="Sports">Sports</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+            <button id="searchButton">🔍</button>
+
+        </div>
+
+        <div class="language">
+            🇮🇳 EN
+        </div>
+
+        <div class="account">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+        </div>
+
+        <div class="orders">
+            <small>Returns</small>
+            <strong>& Orders</strong>
+        </div>
+
+        <div class="cart">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<nav class="navbar">
+
+    <button id="menuButton">☰ All</button>
+
+    <div id="navMenu">
+
+        <a href="#" data-category="all">Best Sellers</a>
+
+        <a href="#" data-category="all">Today's Deals</a>
+
+        <a href="#" data-category="Electronics">Electronics</a>
+
+        <a href="#" data-category="Fashion">Fashion</a>
+
+        <a href="#" data-category="Home">Home</a>
+
+        <a href="#" data-category="Books">Books</a>
+
+        <a href="#" data-category="Sports">Sports</a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="slide active slide-one">
+
+        <div class="hero-content">
+
+            <p>MEGA SHOPPING WEEK</p>
+
+            <h1>Upgrade Your Everyday Life</h1>
+
+            <h3>
+                Discover electronics, fashion and everyday essentials
+                at great prices.
+            </h3>
+
+            <button data-category="Electronics" class="hero-shop">
+                Shop Now
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="slide slide-two">
+
+        <div class="hero-content">
+
+            <p>NEW SEASON</p>
+
+            <h1>Style Made Simple</h1>
+
+            <h3>
+                Explore fresh fashion picks for your everyday look.
+            </h3>
+
+            <button data-category="Fashion" class="hero-shop">
+                Explore Fashion
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="slide slide-three">
+
+        <div class="hero-content">
+
+            <p>HOME REFRESH</p>
+
+            <h1>Make Your Home Better</h1>
+
+            <h3>
+                Useful products for your kitchen and living space.
+            </h3>
+
+            <button data-category="Home" class="hero-shop">
+                Explore Home
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <button id="previousSlide" class="slider-button previous">
+        ❮
+    </button>
+
+    <button id="nextSlide" class="slider-button next">
+        ❯
+    </button>
+
+</section>
+
+
+
+<!-- CATEGORY SECTION -->
+
+<section class="categories">
+
+    <h2>Shop by Category</h2>
+
+    <div class="category-container">
+
+        <div class="category-card" data-category="Electronics">
+            <div>💻</div>
+            <h3>Electronics</h3>
+            <p>Smart gadgets & accessories</p>
+        </div>
+
+        <div class="category-card" data-category="Fashion">
+            <div>👕</div>
+            <h3>Fashion</h3>
+            <p>Latest styles & clothing</p>
+        </div>
+
+        <div class="category-card" data-category="Home">
+            <div>🏠</div>
+            <h3>Home & Kitchen</h3>
+            <p>Essentials for your home</p>
+        </div>
+
+        <div class="category-card" data-category="Beauty">
+            <div>✨</div>
+            <h3>Beauty</h3>
+            <p>Beauty & personal care</p>
+        </div>
+
+        <div class="category-card" data-category="Mobiles">
+            <div>📱</div>
+            <h3>Mobiles</h3>
+            <p>Phones & accessories</p>
+        </div>
+
+        <div class="category-card" data-category="Books">
+            <div>📚</div>
+            <h3>Books</h3>
+            <p>Learn something new</p>
+        </div>
+
+        <div class="category-card" data-category="Sports">
+            <div>🏏</div>
+            <h3>Sports</h3>
+            <p>Fitness & outdoor gear</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PRODUCTS -->
+
+<section class="products-section" id="productsSection">
+
+    <div class="product-heading">
+
+        <div>
+            <h2>Featured Products</h2>
+            <p id="resultMessage">Explore our latest products</p>
+        </div>
+
+
+        <div class="product-controls">
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Electronics">
+                    Electronics
+                </option>
+
+                <option value="Fashion">
+                    Fashion
+                </option>
+
+                <option value="Home">
+                    Home & Kitchen
+                </option>
+
+                <option value="Beauty">
+                    Beauty
+                </option>
+
+                <option value="Mobiles">
+                    Mobiles
+                </option>
+
+                <option value="Books">
+                    Books
+                </option>
+
+                <option value="Sports">
+                    Sports
+                </option>
+
+            </select>
+
+
+            <select id="sortProducts">
+
+                <option value="default">
+                    Sort Products
+                </option>
+
+                <option value="low">
+                    Price: Low to High
+                </option>
+
+                <option value="high">
+                    Price: High to Low
+                </option>
+
+                <option value="rating">
+                    Highest Rating
+                </option>
+
+                <option value="discount">
+                    Highest Discount
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div id="productContainer" class="product-container">
+
+    </div>
+
+
+    <div id="noProducts" class="no-products">
+
+        <h2>No products found</h2>
+
+        <p>
+            Try another search or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <button id="backToTop">
+        Back to top
+    </button>
+
+
+    <div class="footer-container">
+
+
+        <div>
+
+            <h3>Get to Know Us</h3>
+
+            <a href="#">About Us</a>
+
+            <a href="#">Careers</a>
+
+            <a href="#">Our Services</a>
+
+            <a href="#">Blog</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Connect With Us</h3>
+
+            <a href="#">Instagram</a>
+
+            <a href="#">LinkedIn</a>
+
+            <a href="#">Facebook</a>
+
+            <a href="#">YouTube</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Make Money With Us</h3>
+
+            <a href="#">Sell Products</a>
+
+            <a href="#">Become a Partner</a>
+
+            <a href="#">Advertise Products</a>
+
+            <a href="#">Affiliate Program</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Let Us Help You</h3>
+
+            <a href="#">Your Account</a>
+
+            <a href="#">Returns Centre</a>
+
+            <a href="#">Delivery Information</a>
+
+            <a href="#">Help</a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="logo">
+            Shop<span>Sphere</span>
+        </div>
+
+        <p>
+            © 2026 ShopSphere. Frontend UI Replication Project.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<div id="notification" class="notification">
+    Product added to cart!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
